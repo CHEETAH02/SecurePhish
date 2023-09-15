@@ -72,7 +72,6 @@ export default function Hero() {
 	const location = useLocation();
 	const queryParams = new URLSearchParams(location.search);
 	const url = queryParams.get('url');
-	console.log(url);
 
 	useEffect(() => {
 		// Code to run as the effect
