@@ -131,5 +131,7 @@ print(confusion_matrix(y_test, y_test_xgb))
 # explanation = explainer.explain_instance(instance, forest.predict_proba)
 # explanation.show_in_notebook()
 
-
-joblib.dump(xgb_model, "model.sav")
+import pickle
+# save the classifier
+with open('model.pkl', 'wb') as fid:
+    pickle.dump(xgb_model, fid)
