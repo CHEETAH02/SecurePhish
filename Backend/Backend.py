@@ -25,7 +25,7 @@ def Predict():
         try:
             data = request.get_json()
             print(data)
-            classifier = joblib.load('Backend/model.sav')
+            classifier = joblib.load('model.sav')
             Sample = extractfeature(data['url'])
             print(Sample)
             df = pd.DataFrame([Sample],columns=['Prefix_suffix_separation','Sub_domains','URL_Length','age_domain','dns_record','domain_registration_length','statistical_report','tiny_url','slashes','dots'])
