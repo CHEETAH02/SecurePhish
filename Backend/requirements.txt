@@ -19,6 +19,7 @@ pandas
 Pillow
 pyparsing
 python-dateutil
+python-whois
 pytz
 scikit-learn
 scipy
@@ -26,5 +27,4 @@ six
 threadpoolctl
 tzdata
 Werkzeug
-whois
 xgboost==1.6.2
