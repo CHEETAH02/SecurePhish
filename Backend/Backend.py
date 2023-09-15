@@ -6,7 +6,6 @@ from urllib.parse import urlparse, unquote
 import re
 import socket
 import whois
-import pickle
 from datetime import datetime
 import time
 import numpy as np
@@ -26,8 +25,7 @@ def Predict():
         try:
             data = request.get_json()
             print(data)
-            with open('model.pkl', 'rb') as fid:
-              classifier = pickle.load(fid)
+            classifier = joblib.load('model.sav')
             Sample = extractfeature(data['url'])
             print(Sample)
             df = pd.DataFrame([Sample],columns=['Prefix_suffix_separation','Sub_domains','URL_Length','age_domain','dns_record','domain_registration_length','statistical_report','tiny_url','slashes','dots'])
