@@ -88,7 +88,7 @@ export default function Hero() {
    
     setIsPredictClicked(true);
     // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-    const API_ENDPOINT = 'http://127.0.0.1:5000/Predict';
+    const API_ENDPOINT = 'https://securephish.onrender.com/Predict';
 
     axios
       .post(API_ENDPOINT, { url: urlInput }, { headers: { 'Content-Type': 'application/json' } })
