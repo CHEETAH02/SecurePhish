@@ -62,11 +62,11 @@ const accordionData = [
 ];
 
 export default function Hero() {
-  const [urlInput, setUrlInput] = useState(''); // Default text in the input box
-  const [prediction, setPrediction] = useState('');
-  const [score, setScore] = useState([]);
-  const [detectionFeatures, setDetectionFeatures] = useState([]);
-  const [expanded, setExpanded] = useState(null);
+	const [urlInput, setUrlInput] = useState(''); // Default text in the input box
+	const [prediction, setPrediction] = useState('');
+	const [score, setScore] = useState([]);
+	const [detectionFeatures, setDetectionFeatures] = useState([]);
+	const [expanded, setExpanded] = useState(null);
 
 	// fetch query parameter 
 	const location = useLocation();
@@ -78,137 +78,136 @@ export default function Hero() {
 		setUrlInput(url)
 	}, []);
 
-  const handleInputChange = (e) => {
-    setUrlInput(e.target.value);
-  };
-  const [isPredictClicked, setIsPredictClicked] = useState(false);
-  const handlePredictClick = () => {
-    // Check if the input URL starts with "www," "http," or "https"
-   
-    setIsPredictClicked(true);
-    // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-    const API_ENDPOINT = 'https://securephish.onrender.com/Predict';
+	const handleInputChange = (e) => {
+		setUrlInput(e.target.value);
+	};
+	const [isPredictClicked, setIsPredictClicked] = useState(false);
+	const handlePredictClick = () => {
+		// Check if the input URL starts with "www," "http," or "https"
 
-    axios
-      .post(API_ENDPOINT, { url: urlInput }, { headers: { 'Content-Type': 'application/json' } })
-      .then((response) => {
-        // Assuming your API returns the prediction result in 'response.data.detection'
-        const detection = response.data.detectionResult;
-        setPrediction(detection == 1 ? 'Phishing' : 'Safe');
+		setIsPredictClicked(true);
+		// Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+		const API_ENDPOINT = 'https://securephish.onrender.com/Predict';
+
+		axios
+			.post(API_ENDPOINT, { url: urlInput }, { headers: { 'Content-Type': 'application/json' } })
+			.then((response) => {
+				// Assuming your API returns the prediction result in 'response.data.detection'
+				const detection = response.data.detectionResult;
+				setPrediction(detection == 1 ? 'Phishing' : 'Safe');
 				// setScore(detection[2]);
-        // setDetectionFeatures(detection.slice(3)); // Get features starting from index 2
-        setExpanded('panel1'); // Open the first Accordion when data is received
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  };
- const [isClicked, setIsClicked] = useState(false);
+				// setDetectionFeatures(detection.slice(3)); // Get features starting from index 2
+				setExpanded('panel1'); // Open the first Accordion when data is received
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+			});
+	};
+	const [isClicked, setIsClicked] = useState(false);
 
- const predictButtonStyle = {
-  marginLeft: '5px',
-  marginTop: '20px',
-  width: '100px',
-  height: '45px', // Increase the height of the button text
-  backgroundColor: isPredictClicked ? '#4B9CC5' : '#ADD8E6',
-  color: 'black',
-  fontFamily: "Georgia",
-  transition: 'background-color 0.3s', // Add a smooth transition for color change
-  fontSize: "18px",
-  fontStyle: "normal",
-  marginRight: '10px',
-};
+	const predictButtonStyle = {
+		marginLeft: '5px',
+		marginTop: '20px',
+		width: '100px',
+		height: '45px', // Increase the height of the button text
+		backgroundColor: isPredictClicked ? '#4B9CC5' : '#ADD8E6',
+		color: 'black',
+		fontFamily: "Georgia",
+		transition: 'background-color 0.3s', // Add a smooth transition for color change
+		fontSize: "18px",
+		fontStyle: "normal",
+		marginRight: '10px',
+	};
 
-const predictButtonHoverStyle = {
-  backgroundColor: '#4B9CC5',
-  marginLeft: '5px',
-  marginTop: '20px',
-  width: '100px',
-  height: '45px', // Increase the height of the button text
-  color: 'black',
-  fontFamily: "Georgia",
-  fontSize: "18px",
-  fontStyle: "normal",
-  marginRight: '10px',
-};
+	const predictButtonHoverStyle = {
+		backgroundColor: '#4B9CC5',
+		marginLeft: '5px',
+		marginTop: '20px',
+		width: '100px',
+		height: '45px', // Increase the height of the button text
+		color: 'black',
+		fontFamily: "Georgia",
+		fontSize: "18px",
+		fontStyle: "normal",
+		marginRight: '10px',
+	};
 
-  const handleResetClick = () => {
-    setUrlInput(''); // Reset the default text in the input box
-    setPrediction('');
-    setScore('');
-    setDetectionFeatures([]);
-    setExpanded(null); // Close all accordions on reset
-    setIsClicked(true);
-  };
+	const handleResetClick = () => {
+		setUrlInput(''); // Reset the default text in the input box
+		setPrediction('');
+		setScore('');
+		setDetectionFeatures([]);
+		setExpanded(null); // Close all accordions on reset
+		setIsClicked(true);
+	};
 
-  const buttonStyle = {
-    marginLeft: '5px',
-    marginTop: '20px',
-    width: '100px',
-    height: '45px', // Increase the height of the button text
-    backgroundColor: isClicked ? '#4B9CC5' : '#ADD8E6',
-    color: 'black',
-    fontFamily: "Georgia",
-    transition: 'background-color 0.3s', // Add a smooth transition for color change
-    fontSize: "18px",
-    fontStyle: "normal",
-  };
+	const buttonStyle = {
+		marginLeft: '5px',
+		marginTop: '20px',
+		width: '100px',
+		height: '45px', // Increase the height of the button text
+		backgroundColor: isClicked ? '#4B9CC5' : '#ADD8E6',
+		color: 'black',
+		fontFamily: "Georgia",
+		transition: 'background-color 0.3s', // Add a smooth transition for color change
+		fontSize: "18px",
+		fontStyle: "normal",
+	};
 
-  // Define a style for the button when hovering
-  const buttonHoverStyle = {
-    backgroundColor: '#4B9CC5',
-    marginLeft: '5px',
-    marginTop: '20px',
-    width: '100px',
-    height: '45px', // Increase the height of the button text
-    color: 'black',
-    fontFamily: "Georgia",
-    fontSize: "18px",
-    fontStyle: "normal",
-  };
+	// Define a style for the button when hovering
+	const buttonHoverStyle = {
+		backgroundColor: '#4B9CC5',
+		marginLeft: '5px',
+		marginTop: '20px',
+		width: '100px',
+		height: '45px', // Increase the height of the button text
+		color: 'black',
+		fontFamily: "Georgia",
+		fontSize: "18px",
+		fontStyle: "normal",
+	};
 
-  return (
-    <div style={{ textAlign: 'center', marginTop: '125px', color: 'black' ,marginBottom:"125px", fontFamily:"Georgia", fontStyle: "normal", fontWeight: "30px"}}>
-      <h1>SecurePhish</h1>
-      <input
-        type="text"
-        placeholder="Enter URL"
-        value={urlInput}
-        onChange={handleInputChange}
-        style={{ width: '50vw', height: '40px', fontFamily:"serif", fontSize: "18px", boxShadow: '4px 4px 8px rgba(173, 216, 230, 0.6)', borderColor: "#4B9CC5" }}
-      /><br/>
-      <button onClick={handlePredictClick} style={isPredictClicked ? predictButtonHoverStyle : predictButtonStyle}>Predict</button>
-      <button onClick={handleResetClick} style={isClicked ? buttonHoverStyle : buttonStyle}>Reset</button>
-      {prediction && (
-        <div>
-          <p>Prediction Result: {prediction}</p>
-          <p style={{marginLeft:"15vw", marginRight:"15vw"}}>This URL is detected as {prediction} </p>
-        </div>
-      )}
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '15px' }}>
-        <br/>
-        <h2>Extraction Features</h2>
-        {accordionData.map((item, index) => (
-          <Accordion
-            key={item.id}
-            expanded={expanded === item.id}
-            onChange={() => setExpanded(expanded === item.id ? null : item.id)}
-            sx={{ width: '60%', marginBottom: '16px' ,  boxShadow: '4px 4px 8px rgba(173, 216, 230, 0.6)'}}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls={`${item.id}bh-content`}
-              id={`${item.id}bh-header`}
-            >
-              <Typography sx={{fontStyle: "initial", fontSize: "18px", fontFamily:"Georgia"}}>{item.title}</Typography>
-            </AccordionSummary>
-            <AccordionDetails style={{ textAlign: 'left' }}>
-              <Typography sx={{alignContent:"left", fontStyle: "initial", fontSize: "16px", fontFamily: "cursive"}}>{item.content}</Typography>
-              {prediction ? <Typography>Feature Score: {detectionFeatures[index]}</Typography> : null}
-            </AccordionDetails>
-          </Accordion>
-        ))}
-      </div>
-    </div>
-  );
+	return (
+		<div style={{ textAlign: 'center', marginTop: '125px', color: 'black', marginBottom: "125px", fontFamily: "Georgia", fontStyle: "normal", fontWeight: "30px" }}>
+			<h1>SecurePhish</h1>
+			<input
+				type="text"
+				placeholder="Enter URL"
+				value={urlInput}
+				onChange={handleInputChange}
+				style={{ width: '50vw', height: '40px', fontFamily: "serif", fontSize: "18px", boxShadow: '4px 4px 8px rgba(173, 216, 230, 0.6)', borderColor: "#4B9CC5" }}
+			/><br />
+			<button onClick={handlePredictClick} style={isPredictClicked ? predictButtonHoverStyle : predictButtonStyle}>Predict</button>
+			<button onClick={handleResetClick} style={isClicked ? buttonHoverStyle : buttonStyle}>Reset</button>
+			{prediction && (
+				<div>
+					<p>Prediction Result: {prediction}</p>
+					<p style={{ marginLeft: "15vw", marginRight: "15vw" }}>This URL is detected as {prediction} </p>
+				</div>
+			)}
+			<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '15px' }}>
+				<br />
+				<h2>Extraction Features</h2>
+				{accordionData.map((item, index) => (
+					<Accordion
+						key={item.id}
+						expanded={expanded === item.id}
+						onChange={() => setExpanded(expanded === item.id ? null : item.id)}
+						sx={{ width: '60%', marginBottom: '16px', boxShadow: '4px 4px 8px rgba(173, 216, 230, 0.6)' }}
+					>
+						<AccordionSummary
+							expandIcon={<ExpandMoreIcon />}
+							aria-controls={`${item.id}bh-content`}
+							id={`${item.id}bh-header`}
+						>
+							<Typography sx={{ fontStyle: "initial", fontSize: "18px", fontFamily: "Georgia" }}>{item.title}</Typography>
+						</AccordionSummary>
+						<AccordionDetails style={{ textAlign: 'left' }}>
+							<Typography sx={{ alignContent: "left", fontStyle: "initial", fontSize: "16px", fontFamily: "cursive" }}>{item.content}</Typography>
+						</AccordionDetails>
+					</Accordion>
+				))}
+			</div>
+		</div>
+	);
 }
