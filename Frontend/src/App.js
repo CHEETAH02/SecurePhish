@@ -13,8 +13,8 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/home" element={<Home />} />
-					<Route path="/about" element={<About />} />
-					<Route path="/scenarios" element={<ControlledAccordions />} />
+					<Route path="/features" element={<About />} />
+					<Route path="/resources" element={<ControlledAccordions />} />
 					{/* Other routes */}
 				</Routes>
 				<Footer />
