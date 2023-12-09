@@ -12,6 +12,85 @@ import CardContent from '@mui/material/CardContent';
 
 
 import CountUp from 'react-countup';
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    preferredDemoDate: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add your logic for handling form submission here
+    console.log('Form submitted:', formData);
+  };
+
+  return (
+    <div style={{ display: 'flex', maxWidth: '900px', margin: 'auto', textAlign:"left" , color:"#164863", fontWeight: '30px', fontSize: '20px',}}>
+      <div style={{ flex: 1 ,marginRight:"-2vw", marginLeft:"3vw"}}>
+       <br/>
+        <form onSubmit={handleSubmit} style={{borderColor:"#164863", }}>
+          <div style={{ marginBottom: '15px' ,}}>
+            <label>Name: </label>
+            <input type="text" name="name" value={formData.name} onChange={handleChange} required style={{ width:"300px" }}/>
+          </div>
+          <div style={{ marginBottom: '15px' }}>
+            <label>Email: </label>
+            <input type="email" name="email" value={formData.email} onChange={handleChange} required style={{ width:"305px" }} />
+          </div>
+          <div style={{ marginBottom: '15px' }}>
+            <label>Company: </label>
+            <input type="text" name="company" value={formData.company} onChange={handleChange} style={{ width:"270px" }} />
+          </div>
+          <div style={{ marginBottom: '15px' }}>
+            <label>Preferred Demo Date: </label>
+            <input type="date" name="preferredDemoDate" value={formData.preferredDemoDate} onChange={handleChange} style={{ width:"170px", height:"40px" }}/>
+          </div>
+          <div style={{ marginBottom: '15px' }}>
+            <label>Message:  </label>
+            <textarea name="message" value={formData.message} onChange={handleChange} rows="4" style={{ width:"275px" }} />
+          </div>
+          <button
+            type="submit"
+            style={{
+              backgroundColor: '#164863',
+              color: '#fff',
+              padding: '10px',
+              borderRadius: '3px',
+              cursor: 'pointer',
+              marginBottom: '15px',
+              alignSelf:"center",
+              width:"200px",
+              marginLeft:"0px"
+            }}
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+      <div style={{ flex: 1 }}>
+        {/* Replace the image source with your actual image */}
+        <img
+          src="/contact.jpg" 
+          alt="Contact Us Image"
+          style={{ width: '100%', height: 'auto',marginTop:"-2vw" }}
+        />
+      </div>
+    </div>
+  );
+};
+
+
 const containerStyle = {
     display: 'flex',
     justifyContent: 'space-between',
@@ -106,6 +185,7 @@ const accordionData = [
 		content: 'The presence of extra dots in domain names can be indicative of phishing. For instance, comparing "legit.com" to "l.egit.com" can reveal potential threats.',
 	},
 ];
+
 
 export default function Hero() {
   const [urlInput, setUrlInput] = useState('');
@@ -303,7 +383,7 @@ cursor: 'pointer',
           <button  style={{ fontFamily: 'Calibri',
     fontSize: '18px',
     fontStyle: 'normal', width:"200px", backgroundColor:"#164863", color:"white", height:"50px"}}>
-           Know more!
+           Know More!
           </button>
          
         </div>
@@ -316,25 +396,32 @@ cursor: 'pointer',
 </div>
 <br/><br/><br/>
 <h1 style={{ textAlign: 'left', color: '#164863' }}>What makes us Stand Out</h1>
-<div style={{ display: 'flex', justifyContent: 'space-between',backgroundColor:"",paddingBottom:"10px",}}>
-      <AnimatedCounter endValue={96} title="Percent Accuracy" />
-      <AnimatedCounter endValue={75} title="Another Metric" />
-      <AnimatedCounter endValue={85} title="yet Another Metric" />
-	  <AnimatedCounter endValue={85} title="yet Another Metric" />
-    </div>
-<br/>
+<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: "", paddingBottom: "10px" ,}}>
+
+  <div style={{ borderRight: '1px solid #164863', paddingRight: '10px' }}>
+    <AnimatedCounter endValue={96} title="Percent Accuracy" />
+  </div>
+  <div style={{ borderRight: '1px solid #164863', paddingRight: '10px' }}>
+    <AnimatedCounter endValue={75} title="Another Metric" />
+  </div>
+  <div style={{ borderRight: '1px solid #164863', paddingRight: '10px' }}>
+    <AnimatedCounter endValue={85} title="Yet Another Metric" />
+  </div>
+  <AnimatedCounter endValue={85} title="Yet Another Metric" />
+</div>
+
+<br/><br/>
 <h1 style={{ textAlign: 'left', color: '#164863' }}>About Us</h1>
 <div style={{ width: '75vw', paddingRight:"5vw",paddingLeft: '5vw',  textAlign: 'left',fontWeight: '30px', fontSize: '20px',
     color: '#427D9D', // Blue color
     
  }}>
   <p>
-    SecurePhish is a cutting-edge AI and Machine Learning-powered phishing detection system designed to safeguard individuals and organizations against the ever-evolving threat of phishing attacks. With cybercriminals becoming increasingly sophisticated in their methods, SecurePhish offers a robust and proactive solution to identify and thwart phishing attempts before they can cause harm.
+  SecurePhish, an AI-powered phishing detection system, safeguards individuals and organizations from evolving threats. Its advanced algorithm, using a dataset of legitimate and phishing websites, employs the Random Forest Algorithm for reliable results with a low false positive rate. 
+    <br /><br/>
+    Beyond algorithms, SecurePhish offers an intuitive browser extension for seamless integration into web experiences. This extension ensures hassle-free, secure browsing for individuals and businesses, fortifying digital defenses in an increasingly vulnerable online landscape.
     <br /><br />
-    At the core of SecurePhish lies an advanced AI and ML algorithm that utilizes an extensive dataset containing both legitimate and phishing websites. From this dataset, we extract various features based on URL addresses, domains, HTML, and JavaScript code. These features are then used to train a model using the Random Forest Algorithm. This approach forms the bedrock of our system's accuracy, ensuring it delivers reliable results with a notably low false positive rate.
-    <br /><br />
-    Our commitment to enhancing online safety extends beyond just powerful algorithms. SecurePhish offers an intuitive browser extension that seamlessly integrates with your web experience, making secure browsing a hassle-free reality. Whether you're an individual concerned about securing your personal and financial data or a business seeking to fortify your digital defenses, SecurePhish provides the protection you need in an increasingly vulnerable online landscape.
-  </p>
+    </p>
 </div>
 <br/>
 
@@ -383,9 +470,9 @@ cursor: 'pointer',
           </CardContent>
         </Card>
       </div>
-
- 
-	  
+<br/><br/>
+      <h1 style={{ textAlign: 'left', color: '#164863' }}>Contact Us For a Demo</h1>
+	  <ContactForm/>
     </div>
   );
 }
