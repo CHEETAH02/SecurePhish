@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+    "name": "Phishing Detector",
+    "version": "1.0",
+    "description": "Detects phishing websites",
+    "permissions": ["activeTab","http://127.0.0.1:5000/", "webRequest"],
+    "browser_action": {
+      "default_icon": "icons/phish.png"
+    },
+    "icons": {
+      "48": "icons/phish.png"
+    },
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'",
+        "sandbox": ["http://127.0.0.1:5000/"]
+      },
+    "background": {
+      "scripts": ["content.js"],
+      "persistent": false
+    }
+  }
+  

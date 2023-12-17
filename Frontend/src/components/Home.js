@@ -5,9 +5,134 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { fontSize } from '@mui/system';
 import { useLocation } from 'react-router-dom';
 
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+
+
+import CountUp from 'react-countup';
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    preferredDemoDate: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add your logic for handling form submission here
+    console.log('Form submitted:', formData);
+  };
+
+  return (
+    <div style={{ display: 'flex', maxWidth: '900px', margin: 'auto', textAlign:"left" , color:"#164863", fontWeight: '30px', fontSize: '20px',}}>
+      <div style={{ flex: 1 ,marginRight:"-2vw", marginLeft:"3vw"}}>
+       <br/>
+        <form onSubmit={handleSubmit} style={{borderColor:"#164863", }}>
+          <div style={{ marginBottom: '15px' ,}}>
+            <label>Name: </label>
+            <input type="text" name="name" value={formData.name} onChange={handleChange} required style={{ width:"300px" }}/>
+          </div>
+          <div style={{ marginBottom: '15px' }}>
+            <label>Email: </label>
+            <input type="email" name="email" value={formData.email} onChange={handleChange} required style={{ width:"305px" }} />
+          </div>
+          <div style={{ marginBottom: '15px' }}>
+            <label>Company: </label>
+            <input type="text" name="company" value={formData.company} onChange={handleChange} style={{ width:"270px" }} />
+          </div>
+          <div style={{ marginBottom: '15px' }}>
+            <label>Preferred Demo Date: </label>
+            <input type="date" name="preferredDemoDate" value={formData.preferredDemoDate} onChange={handleChange} style={{ width:"170px", height:"40px" }}/>
+          </div>
+          <div style={{ marginBottom: '15px' }}>
+            <label>Message:  </label>
+            <textarea name="message" value={formData.message} onChange={handleChange} rows="4" style={{ width:"275px" }} />
+          </div>
+          <button
+            type="submit"
+            style={{
+              backgroundColor: '#164863',
+              color: '#fff',
+              padding: '10px',
+              borderRadius: '3px',
+              cursor: 'pointer',
+              marginBottom: '15px',
+              alignSelf:"center",
+              width:"200px",
+              marginLeft:"0px"
+            }}
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+      <div style={{ flex: 1 }}>
+        {/* Replace the image source with your actual image */}
+        <img
+          src="/contact.jpg" 
+          alt="Contact Us Image"
+          style={{ width: '100%', height: 'auto',marginTop:"-2vw" }}
+        />
+      </div>
+    </div>
+  );
+};
+
+
+const containerStyle = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    backgroundColor: '#f2f2f2', // Light background color
+    paddingBottom: '10px',
+    position: 'relative', // Set position to relative
+  };
+
+  const verticalLineStyle = {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 'calc(33.333% - 1px)', // Adjust for the width of the line
+    borderLeft: '1px solid #ccc', // Light border color
+  };
+const AnimatedCounter = ({ endValue, title }) => {
+  const counterStyle = {
+    fontSize: '36px',
+    color: '#164863', // Blue color
+    margin: '0',
+	fontWeight:"bold"
+  };
+
+  const titleStyle = {
+    fontSize: '22px',
+    color: '#427D9D', // Blue color
+    margin: '2px 0',
+	fontWeight:"bold"
+  };
+
+  return (
+    <div style={{ flex: 1, textAlign: 'center' , marginLeft:"3.5vw", marginRight:"3.5vw", marginTop:"2vw"}}>
+		
+      <CountUp end={endValue} duration={-1} decimals={2} style={counterStyle} />
+      <p style={titleStyle}>{title}</p>
+    </div>
+  );
+};
+
+
+  
 const accordionData = [
 	{
 		id: 'panel1',
@@ -61,153 +186,293 @@ const accordionData = [
 	},
 ];
 
+
 export default function Hero() {
-	const [urlInput, setUrlInput] = useState(''); // Default text in the input box
-	const [prediction, setPrediction] = useState('');
-	const [score, setScore] = useState([]);
-	const [detectionFeatures, setDetectionFeatures] = useState([]);
-	const [expanded, setExpanded] = useState(null);
+  const [urlInput, setUrlInput] = useState('');
+  const [prediction, setPrediction] = useState('');
+  const [expanded, setExpanded] = useState(null);
+  const [isPredictClicked, setIsPredictClicked] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
 
-	// fetch query parameter 
-	const location = useLocation();
-	const queryParams = new URLSearchParams(location.search);
-	const url = queryParams.get('url');
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const url = queryParams.get('url');
+  const cardStyle = {
+	flex: 1,
+	marginRight: '20px',
+	marginLeft: '20px',
+	backgroundColor:"#e6f3ff",
+	boxShadow: '4px 4px 8px rgba(0, 77, 153, 0.3)',
+	display: 'flex',
+	paddingLeft:"20px",
+	paddingRight:"20px",
+	flexDirection: 'column',
+	alignItems: 'center', // Center content horizontally
+	textAlign: 'center', // Center text horizontally
+	width: '100%', // Set width to 100% for responsiveness
+	marginBottom: '20px', // Add bottom margin for spacing between cards
+	
+	// Media query for larger screens (laptops and desktops)
+	'@media (min-width: 768px)': {
+	  width: 'calc(33.33% - 25px)', // Adjust the width for larger screens
+	},
+  };
+  
 
-	useEffect(() => {
-		// Code to run as the effect
-		setUrlInput(url)
-	}, []);
+const imageStylee = {
+maxWidth: '80%',
+maxHeight: '80px',
+marginBottom: '10px',
+};
 
-	const handleInputChange = (e) => {
-		setUrlInput(e.target.value);
-	};
-	const [isPredictClicked, setIsPredictClicked] = useState(false);
-	const handlePredictClick = () => {
-		// Check if the input URL starts with "www," "http," or "https"
+const titleStyle = {
+color: '#164863',
+marginTop: '10px', // Add some top margin to the title
+};
 
-		setIsPredictClicked(true);
-		// Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
-		const API_ENDPOINT = 'https://securephish.onrender.com/Predict';
+const contentStyle = {
+textAlign: 'left', // Left-align text
+};
 
-		axios
-			.post(API_ENDPOINT, { url: urlInput }, { headers: { 'Content-Type': 'application/json' } })
-			.then((response) => {
-				// Assuming your API returns the prediction result in 'response.data.detection'
-				const detection = response.data.detectionResult;
-				setPrediction(detection == 1 ? 'Phishing' : 'Safe');
-				// setScore(detection[2]);
-				// setDetectionFeatures(detection.slice(3)); // Get features starting from index 2
-				setExpanded('panel1'); // Open the first Accordion when data is received
-			})
-			.catch((error) => {
-				console.error('Error:', error);
-			});
-	};
-	const [isClicked, setIsClicked] = useState(false);
+const buttonStylee = {
+marginTop: '15px', // Add some top margin to the button
+backgroundColor: '#164863',
+color: '#fff',
+padding: '10px 20px',
+border: 'none',
+borderRadius: '5px',
+cursor: 'pointer',
+};
 
-	const predictButtonStyle = {
-		marginLeft: '5px',
-		marginTop: '20px',
-		width: '100px',
-		height: '45px', // Increase the height of the button text
-		backgroundColor: isPredictClicked ? '#4B9CC5' : '#ADD8E6',
-		color: 'black',
-		fontFamily: "Georgia",
-		transition: 'background-color 0.3s', // Add a smooth transition for color change
-		fontSize: "18px",
-		fontStyle: "normal",
-		marginRight: '10px',
-	};
 
-	const predictButtonHoverStyle = {
-		backgroundColor: '#4B9CC5',
-		marginLeft: '5px',
-		marginTop: '20px',
-		width: '100px',
-		height: '45px', // Increase the height of the button text
-		color: 'black',
-		fontFamily: "Georgia",
-		fontSize: "18px",
-		fontStyle: "normal",
-		marginRight: '10px',
-	};
+  useEffect(() => {
+    setUrlInput(url);
+  }, [url]);
 
-	const handleResetClick = () => {
-		setUrlInput(''); // Reset the default text in the input box
-		setPrediction('');
-		setScore('');
-		setDetectionFeatures([]);
-		setExpanded(null); // Close all accordions on reset
-		setIsClicked(true);
-	};
+  const handleInputChange = (e) => {
+    setUrlInput(e.target.value);
+  };
 
-	const buttonStyle = {
-		marginLeft: '5px',
-		marginTop: '20px',
-		width: '100px',
-		height: '45px', // Increase the height of the button text
-		backgroundColor: isClicked ? '#4B9CC5' : '#ADD8E6',
-		color: 'black',
-		fontFamily: "Georgia",
-		transition: 'background-color 0.3s', // Add a smooth transition for color change
-		fontSize: "18px",
-		fontStyle: "normal",
-	};
+  const handlePredictClick = () => {
+    setIsPredictClicked(true);
+    const API_ENDPOINT = 'http://127.0.0.1:5000/Predict';
 
-	// Define a style for the button when hovering
-	const buttonHoverStyle = {
-		backgroundColor: '#4B9CC5',
-		marginLeft: '5px',
-		marginTop: '20px',
-		width: '100px',
-		height: '45px', // Increase the height of the button text
-		color: 'black',
-		fontFamily: "Georgia",
-		fontSize: "18px",
-		fontStyle: "normal",
-	};
+    axios
+      .post(API_ENDPOINT, { url: urlInput }, { headers: { 'Content-Type': 'application/json' } })
+      .then((response) => {
+        const detection = response.data.detectionResult;
+        setPrediction(detection === 1 ? 'Phishing' : 'Safe');
+        setExpanded('panel1');
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  };
 
-	return (
-		<div style={{ textAlign: 'center', marginTop: '125px', color: 'black', marginBottom: "125px", fontFamily: "Georgia", fontStyle: "normal", fontWeight: "30px" }}>
-			<h1>SecurePhish</h1>
-			<input
-				type="text"
-				placeholder="Enter URL"
-				value={urlInput}
-				onChange={handleInputChange}
-				style={{ width: '50vw', height: '40px', fontFamily: "serif", fontSize: "18px", boxShadow: '4px 4px 8px rgba(173, 216, 230, 0.6)', borderColor: "#4B9CC5" }}
-			/><br />
-			<button onClick={handlePredictClick} style={isPredictClicked ? predictButtonHoverStyle : predictButtonStyle}>Predict</button>
-			<button onClick={handleResetClick} style={isClicked ? buttonHoverStyle : buttonStyle}>Reset</button>
-			{prediction && (
-				<div>
-					<p>Prediction Result: {prediction}</p>
-					<p style={{ marginLeft: "15vw", marginRight: "15vw" }}>This URL is detected as {prediction} </p>
-				</div>
-			)}
-			<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '15px' }}>
-				<br />
-				<h2>Extraction Features</h2>
-				{accordionData.map((item, index) => (
-					<Accordion
-						key={item.id}
-						expanded={expanded === item.id}
-						onChange={() => setExpanded(expanded === item.id ? null : item.id)}
-						sx={{ width: '60%', marginBottom: '16px', boxShadow: '4px 4px 8px rgba(173, 216, 230, 0.6)' }}
-					>
-						<AccordionSummary
-							expandIcon={<ExpandMoreIcon />}
-							aria-controls={`${item.id}bh-content`}
-							id={`${item.id}bh-header`}
-						>
-							<Typography sx={{ fontStyle: "initial", fontSize: "18px", fontFamily: "Georgia" }}>{item.title}</Typography>
-						</AccordionSummary>
-						<AccordionDetails style={{ textAlign: 'left' }}>
-							<Typography sx={{ alignContent: "left", fontStyle: "initial", fontSize: "16px", fontFamily: "cursive" }}>{item.content}</Typography>
-						</AccordionDetails>
-					</Accordion>
-				))}
-			</div>
-		</div>
-	);
+  const handleResetClick = () => {
+    setUrlInput('');
+    setPrediction('');
+    setExpanded(null);
+    setIsClicked(true);
+  };
+
+  const containerStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    textAlign: 'center',
+    marginTop: '125px',
+    color: 'black',
+    marginBottom: '50px',
+    fontFamily: 'Calibri',
+    fontStyle: 'normal',
+    fontWeight: '30px',
+  };
+
+  const imageStyle = {
+    width: '30vw',
+    height: '30vw',
+    marginBottom: '20px',
+  };
+
+  const inputStyle = {
+    width: '50vw',
+    height: '40px',
+    fontFamily: 'Calibri',
+    fontSize: '18px',
+    boxShadow: '4px 4px 8px rgba(0, 77, 153, 0.3)',
+    borderColor: '#4B9CC5',
+    marginBottom: '20px',
+  };
+
+  const buttonsContainerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    marginBottom: '20px',
+  };
+
+  const buttonStyle = {
+    marginLeft: '5px',
+    marginTop: '20px',
+    width: '100px',
+    height: '45px',
+    backgroundColor: isClicked ? '#427D9D' : '#164863',
+    color: 'white',
+    fontFamily: 'Calibri',
+    transition: 'background-color 0.3s',
+    fontSize: '18px',
+    fontStyle: 'normal',
+    marginRight: '10px',
+  };
+
+  const buttonHoverStyle = {
+    backgroundColor: '#4B9CC5',
+    marginLeft: '5px',
+    marginTop: '20px',
+    width: '100px',
+    height: '45px',
+    color: 'white',
+    fontFamily: 'Calibri',
+    fontSize: '18px',
+    fontStyle: 'normal',
+    marginRight: '10px',
+  };
+
+  const resultsContainerStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    paddingTop: '15px',
+  };
+
+  return (
+    <div style={containerStyle}>
+
+<div style={{
+  textAlign: 'center',
+  marginTop: '225px',
+  color: 'black',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  marginLeft:"5vw"
+}}>
+
+  <div style={{
+    width: '80%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    margin: '0 auto',
+  }}>
+
+    <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: '-15vw' }}>
+
+      <div style={{
+        marginLeft: '40px',
+        textAlign: 'left',
+        width: '100%',
+      }}>
+        <h1 style={{ color: '#164863', marginTop: '-2vw' }}>SecurePhish: Safeguarding Your Digital Horizon from Phishing Threats!</h1>
+        <p style={{ marginTop: '-10px', marginBottom: '10px', fontWeight: '30px', fontSize: '20px', color: '#427D9D' }}>
+		Shield your online world with SecurePhish – an intelligent system powered by advanced AI and Machine Learning. Our smart technology is designed to strengthen your protection against sneaky phishing and scam attacks that might outsmart ordinary security tools. SecurePhish's state-of-the-art model goes the extra mile to detect various phishing threats effectively. 
+        </p>
+		<br/>
+        <div style={{ display: 'flex', marginTop: '20px' }}>
+		
+          <button  style={{ fontFamily: 'Calibri',
+    fontSize: '18px',
+    fontStyle: 'normal', width:"200px", backgroundColor:"#164863", color:"white", height:"50px"}}>
+           Know More!
+          </button>
+         
+        </div>
+        
+      </div>
+
+      <img src="/phishing.jpg" style={{ width: '60vw', height: '60vw', maxWidth: '500px', maxHeight: '500px', marginBottom: '20px' }} alt="Phishing image" />
+    </div>
+  </div>
+</div>
+<br/><br/><br/>
+<h1 style={{ textAlign: 'left', color: '#164863' }}>What makes us Stand Out</h1>
+<div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: "", paddingBottom: "10px" ,}}>
+
+  <div style={{ borderRight: '1px solid #164863', paddingRight: '10px' }}>
+    <AnimatedCounter endValue={96} title="Percent Accuracy" />
+  </div>
+  <div style={{ borderRight: '1px solid #164863', paddingRight: '10px' }}>
+    <AnimatedCounter endValue={75} title="Another Metric" />
+  </div>
+  <div style={{ borderRight: '1px solid #164863', paddingRight: '10px' }}>
+    <AnimatedCounter endValue={85} title="Yet Another Metric" />
+  </div>
+  <AnimatedCounter endValue={85} title="Yet Another Metric" />
+</div>
+
+<br/><br/>
+<h1 style={{ textAlign: 'left', color: '#164863' }}>About Us</h1>
+<div style={{ width: '75vw', paddingRight:"5vw",paddingLeft: '5vw',  textAlign: 'left',fontWeight: '30px', fontSize: '20px',
+    color: '#427D9D', // Blue color
+    
+ }}>
+  <p>
+  SecurePhish, an AI-powered phishing detection system, safeguards individuals and organizations from evolving threats. Its advanced algorithm, using a dataset of legitimate and phishing websites, employs the Random Forest Algorithm for reliable results with a low false positive rate. 
+    <br /><br/>
+    Beyond algorithms, SecurePhish offers an intuitive browser extension for seamless integration into web experiences. This extension ensures hassle-free, secure browsing for individuals and businesses, fortifying digital defenses in an increasingly vulnerable online landscape.
+    <br /><br />
+    </p>
+</div>
+<br/>
+
+<h1 style={{ alignContent: 'center', color: '#164863', }}>Our Products</h1>
+      {/* Feature Cards */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px', marginLeft:"15vw", marginRight:"15vw" }}>
+        {/* Feature Card 1 */}
+        <Card style={cardStyle}>
+          <CardContent>
+            <img src="/extensions.png" alt="SecurePhish Browser Extension" style={imageStylee} />
+            <h3 style={titleStyle}>SecurePhish Browser Extension</h3>
+            <p style={contentStyle}>Lorem ipsum dolor sit amet, Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+</p>
+            <button style={buttonStylee} onClick={() => window.location.href = '/extension-details'}>
+              Install browser extension
+            </button>
+          </CardContent>
+        </Card>
+
+        {/* Feature Card 2 */}
+        <Card style={cardStyle}>
+          <CardContent>
+            <img src="/mail.png" alt="SecurePhish URL Scanner Email Plugin" style={imageStylee} />
+            <h3 style={titleStyle}>SecurePhish URL Scanner Email Plugin</h3>
+            <p style={contentStyle}>Lorem ipsum dolor sit amet,  dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+</p>
+            <button style={buttonStylee} onClick={() => window.location.href = '/url-scanner-details'}>
+              Install email plugin
+            </button>
+          </CardContent>
+        </Card>
+
+        {/* Feature Card 3 */}
+        <Card style={cardStyle}>
+          <CardContent>
+            <img src="/api.png" alt="SecurePhish AntiPhishing API" style={imageStylee} />
+            <h3 style={titleStyle}>SecurePhish AntiPhishing API</h3>
+            <p style={contentStyle}>Lorem ipsum dolor sit amet, ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+</p>
+            <button style={buttonStylee} onClick={() => window.location.href = '/api-details'}>
+              Get API key
+            </button>
+          </CardContent>
+        </Card>
+      </div>
+<br/><br/>
+      <h1 style={{ textAlign: 'left', color: '#164863' }}>Contact Us For a Demo</h1>
+	  <ContactForm/>
+    </div>
+  );
 }
