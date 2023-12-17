@@ -78,7 +78,7 @@ const ResultsTable = () => {
 
 	const handlePredictClick = () => {
 		setIsPredictClicked(true);
-		const API_ENDPOINT = 'http://127.0.0.1:5000/Predict';
+		const API_ENDPOINT = 'https://securephish.onrender.com/Predict';
 
 		axios
 			.post(API_ENDPOINT, { url: urlInput }, { headers: { 'Content-Type': 'application/json' } })
@@ -169,7 +169,7 @@ const ResultsTable = () => {
 	};
 	useEffect(() => {
 		// Replace 'YOUR_API_ENDPOINT' with the actual API endpoint
-		const API_ENDPOINT = 'http://127.0.0.1:5000/recenturls';
+		const API_ENDPOINT = 'https://d67ca7f3-cbe6-4f80-b9fc-2a8cf89e3540.mock.pstmn.io/recenturls';
 
 		// Fetch past ten URL results
 		fetch(API_ENDPOINT)

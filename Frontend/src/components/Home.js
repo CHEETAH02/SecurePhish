@@ -255,7 +255,7 @@ cursor: 'pointer',
 
   const handlePredictClick = () => {
     setIsPredictClicked(true);
-    const API_ENDPOINT = 'http://127.0.0.1:5000/Predict';
+    const API_ENDPOINT = 'https://securephish.onrender.com/Predict';
 
     axios
       .post(API_ENDPOINT, { url: urlInput }, { headers: { 'Content-Type': 'application/json' } })

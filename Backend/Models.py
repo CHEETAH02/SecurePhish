@@ -15,7 +15,6 @@ class Models:
     def random_forest_classifier(self):
 
         forest_model = joblib.load('rf_model.joblib')
-        print(forest_model)
         self.result.append(forest_model.predict(self.feature)[0])
 
     def xgboost_classifier(self):

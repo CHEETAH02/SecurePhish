@@ -12,7 +12,7 @@ function Docs() {
 
   return (
     <div style={{ margin: '5vw', padding: '10px', boxShadow: '4px 4px 8px rgba(0, 77, 153, 0.3)' }}>
-      <div style={{ marginBottom: '20px', padding: '20px', backgroundColor: '#f4f4f4', borderRadius: '8px' }}>
+      <div style={{ marginBottom: '20px', padding: '20px', backgroundColor: '#e6f3ff', borderRadius: '8px' }}>
         <h1>API Documentation</h1>
 
         {/* Check if the user is logged in to display API key generation */}
@@ -32,7 +32,7 @@ function Docs() {
         )}
       </div>
 
-      <div style={{ marginBottom: '20px', padding: '20px', backgroundColor: '#f9f9f9', borderRadius: '8px' }}>
+      <div style={{ marginBottom: '20px', padding: '20px', backgroundColor: '#e6f3ff', borderRadius: '8px' }}>
         {/* Integration Guide */}
         <h2>Integration Guide</h2>
         <p>To integrate our API into your system, follow these simple steps:</p>
@@ -44,7 +44,7 @@ function Docs() {
         </ol>
       </div>
 
-      <div style={{ padding: '20px', backgroundColor: '#fcfcfc', borderRadius: '8px' }}>
+      <div style={{ padding: '20px', backgroundColor: '#e6f3ff', borderRadius: '8px' }}>
         <h3>Sample Code</h3>
         <p>Here is a sample code snippet in JavaScript to get you started:</p>
         <pre>
