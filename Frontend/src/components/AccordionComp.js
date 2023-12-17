@@ -5,59 +5,93 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-
 const accordionData = [
-	{
-		id: 'panel1',
-		title: 'Scenario 1',
-		content: `One of the Biggest Data Breaches from Phishing: \n\nJohn Podesta’s Email\nThere was a lot of controversy surrounding the November 2016 election on both sides of the political spectrum. One of the most notable was the hack of John Podesta’s Gmail account. Podesta, chairman of presidential candidate Hillary Clinton’s democratic election campaign, found himself as one of the country’s top phishing attack examples when his account was victimized by a Russian hacker group known as Fancy Bear. The phishers, pretending to be Google, sent an email saying that he needed to change his email after an attempted hack occurred. However, in true phishing attack fashion, the email linked to a malicious website. When someone with access to Podesta’s email used the compromised link, the hackers gained access to his account. This led to the eventual release of thousands of Podesta’s emails via WikiLeaks in the weeks leading up to the November election.`,
-	},
-	{
-		id: 'panel2',
-		title: 'Scenario 2',
-		content: `One of the Biggest Data Breaches from Phishing: \n\nBenefitMall\nAmong the most recent phishing attacks reported by the media is one that affected BenefitMall, a human resource, employee benefits, and payroll administration solutions company. Between June 2018 and October 2018, the company’s website was accessed via employee email login credentials that were exposed during an email phishing attack, according to a press release. The types of consumer information left exposed in the affected mailboxes are thought to include names, email addresses, birth dates, bank account information, Insurance premium payment information. Although the full extent of the attack is not yet known, BenefitMall works with “a network of more than 20,000 Trusted Advisors” to serve more than “200,000 small and medium-sized businesses.” This leaves a potentially enormous group of employees and businesses at risk.`,
-	},
-	{
-		id: 'panel3',
-		title: 'Scenario 3',
-		content: `Methodist Hospitals – Gary, Indiana\nIn August of 2019, investigators confirmed Methodist Hospitals’ worst fear. A phishing attack compromised more than 68,000 patients’ information. The hospital did not discover the breach until June when an employee reported suspicious activity in their email account. The investigation revealed that at least two email accounts had been compromised.\n\nThe data obtained from each affected patient varied but included the following: names, addresses, health insurance information, Social Security numbers, passport numbers, bank account numbers, electronic signatures, login credentials, dates of birth, treatment information, and insurance information.`,
-	},
-	{
-		id: 'panel4',
-		title: 'Scenario 4',
-		content: `The University of Wisconsin-Parkside – Kenosha, Wisconsin\nIn June of 2019, the University of Wisconsin-Parkside was notified of a new bank account. This new account was a result of a phishing attack where an employee was prompted to change the routing numbers of two UW system vendors. Before discovering the issues, the university lost $315,000 in fraudulent bank transfers.`,
-	},
+  {
+    id: 'panel1',
+    title: 'COVID-19 pandemic-themed phishing attacks ',
+    content: `With the onset of the COVID-19 pandemic in 2020, attackers took advantage of the situation and launched numerous phishing attacks related to pandemic relief, vaccines, or health information. For example, phishing websites impersonated the World Health Organization (WHO) or the Centers for Disease Control and Prevention (CDC) to collect personal information or spread malware.`,
+  },
+  {
+    id: 'panel2',
+    title: 'Zoom phishing attacks ',
+    content: `During the pandemic, the use of video conferencing platforms like Zoom increased significantly. Attackers capitalized on this trend and created phishing websites that mimicked Zoom login pages to steal users’ credentials. They would send emails with a fake meeting invitation, which redirected users to a phishing site when clicked.`,
+  },
+  {
+    id: 'panel3',
+    title: 'Netflix attacks ',
+    content: `In 2020, phishing attacks targeting Netflix users became prevalent. Attackers sent emails that appeared to be from Netflix, claiming that the user’s account had been suspended due to payment issues. The email contained a link to a fake Netflix website, where users were prompted to enter their login credentials, billing information, and personal details.`,
+  },
+  {
+    id: 'panel4',
+    title: 'Google and Microsoft impersonation attacks',
+    content: `In 2020 and 2021, cybercriminals launched phishing campaigns that impersonated Google and Microsoft services. They sent emails that appeared to be from these companies, with subject lines like “Critical security alert” or “Action required: Update your payment details.” The emails contained links to fake login pages designed to steal users’ credentials.`,
+  },
 ];
 
 export default function AccordionComponent() {
-	const [expanded, setExpanded] = useState(null);
+  const [expanded, setExpanded] = useState(null);
 
-	const handleChange = (panel) => (event, isExpanded) => {
-		setExpanded(isExpanded ? panel : null);
-	};
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : null);
+  };
 
-	return (
-		<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '20px', marginTop: "100px", marginBottom: "125px", height: "65%" }}>
-			<h2 style={{ fontFamily: "Georgia", fontStyle: "normal", fontSize: "25px", paddingLeft: "11vw", paddingRight: "11vw" }}>Scenarios of Phishing Attack(Data breach due to Phishing Attack)</h2>
-			{accordionData.map((item) => (
-				<Accordion
-					key={item.id}
-					expanded={expanded === item.id}
-					onChange={handleChange(item.id)}
-					sx={{ width: '80%', marginBottom: '16px', boxShadow: '4px 4px 8px rgba(173, 216, 230, 0.6)' }}
-				>
-					<AccordionSummary
-						expandIcon={<ExpandMoreIcon />}
-						aria-controls={`${item.id}bh-content`}
-						id={`${item.id}bh-header`}
-					>
-						<Typography sx={{ fontStyle: "initial", fontSize: "18px", fontFamily: "Georgia" }}>{item.title}</Typography>
-					</AccordionSummary>
-					<AccordionDetails>
-						<Typography sx={{ alignContent: "left", fontStyle: "initial", fontSize: "16px", fontFamily: "cursive" }}>{item.content}</Typography>
-					</AccordionDetails>
-				</Accordion>
-			))}
-		</div>
-	);
+  return (
+	<div style={{ marginTop:"-2vw"}}>
+		<div>
+    <div style={{ textAlign: 'left !important',  }}>
+      <div style={{ display: 'flex', flexDirection: 'column', paddingLeft:"10vw", paddingTop: '20px', marginTop: "100px", marginBottom: "20px", height: "65%" }}>
+        <h1 style={{ fontStyle: "normal", color: "#164863", fontSize: "30px",  fontFamily: "Calibri", fontWeight: "bold" }}>Some Recent Scenarios of Phishing Attacks</h1>
+        {accordionData.map((item) => (
+          <Accordion
+            key={item.id}
+            expanded={expanded === item.id}
+            onChange={handleChange(item.id)}
+            sx={{ width: '90%', marginBottom: '16px',boxShadow: '4px 4px 8px rgba(	0, 77, 153, 0.3)', }}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls={`${item.id}bh-content`}
+              id={`${item.id}bh-header`}
+            >
+              <Typography sx={{ fontStyle: "initial", color: "#164863", fontSize: "18px", fontFamily: "Calibri" }}>{item.title}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography sx={{ alignContent: "left", fontStyle: "initial", fontSize: "16px", fontFamily: "Calibri" }}>{item.content}</Typography>
+            </AccordionDetails>
+          </Accordion>
+        ))}
+      </div>
+      </div>
+      {/* References Section */}
+     
+
+    </div>
+	<div style={{ textAlign: 'left', paddingLeft: '10vw', border: "black", paddingRight: '8vw', color: 'black', fontFamily: 'Calibri', paddingTop: '20px', paddingBottom: '20px' }}>
+  <h1 style={{ color: '#164863', fontSize: '30px', fontWeight: 'bold' }}>References</h1>
+  <div style={{ width: '100%', padding: "10px", boxShadow: '4px 4px 8px rgba(173, 216, 230, 0.6)' , backgroundColor:"white"}}>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <img src="/research.png" alt="Research Papers Icon" style={{ width: '30px', marginRight: '10px' }} />
+      <h4 style={{ color: '#164863' }}>Research Papers Referred:</h4>
+    </div>
+    
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <img src="/dataset.png" alt="Datasets Icon" style={{ width: '30px', marginRight: '10px' }} />
+      <h4 style={{ color: '#164863' }}>Datasets used:</h4>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <img src="/report.png" alt="Statistics Icon" style={{ width: '30px', marginRight: '10px' }} />
+      <h4 style={{ color: '#164863' }}>Statistics and Reports used as reference:</h4>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <br /><br />
+  </div>
+</div>
+</div>
+
+  );
 }

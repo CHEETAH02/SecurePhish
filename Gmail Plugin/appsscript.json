@@ -1,0 +1,28 @@
+{
+    "timeZone": "Asia/Kolkata",
+    "dependencies": {
+      "enabledAdvancedServices": [
+        {
+          "userSymbol": "Gmail",
+          "serviceId": "gmail",
+          "version": "v1"
+        }
+      ]
+    },
+    "exceptionLogging": "STACKDRIVER",
+    "runtimeVersion": "V8",
+    "gmail": {
+      "name": "SecurePhish",
+      "logoUrl": "https://www.gstatic.com/images/icons/material/system/1x/receipt_black_24dp.png",
+      "contextualTriggers": [
+        {
+          "unconditional": {},
+          "onTriggerFunction": "startApp"
+        }
+      ],
+      "primaryColor": "#F47041",
+      "secondaryColor": "#2E8B57",
+      "version": "TRUSTED_TESTER_V2"
+    }
+  }
+  
