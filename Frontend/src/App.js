@@ -17,7 +17,7 @@ function App() {
 					<Route path="/home" element={<Home />} />
 					<Route path="/features" element={<About />} />
 					<Route path="/resources" element={<ControlledAccordions />} />
-					<Route path="/login-signup" element={<LoginSignup />} />
+					{/* <Route path="/login-signup" element={<LoginSignup />} /> */}
 					<Route path="/docs" element={<Docs />} />
 					{/* Other routes */}
 				</Routes>

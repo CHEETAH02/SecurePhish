@@ -210,7 +210,7 @@ cursor: 'pointer',
         textAlign: 'center', // Center-align the text
         width: '100%',
       }}>
-        <h1 style={{ color: '#164863', marginTop: '-2vw' }}>Phishing URL Checker: Check a Link for Phishing in Seconds</h1>
+        <h1 style={{ color: '#164863', marginTop: '-2vw' }}>Phishing URL Checker: Check a Link for Phishing</h1>
         <p style={{ marginTop: '-10px', marginBottom: '10px', fontWeight: '30px', fontSize: '20px', color: '#427D9D' }}>
           Enter a suspicious link to check for signs of phishing
         </p>
@@ -310,6 +310,7 @@ cursor: 'pointer',
 			  borderRadius: '10px',
 			  padding: '10px',
 			  margin: "20px",
+        marginBottom:"20px !important",
 			  textAlign: 'center',
 			  color: result.result === 'clean' ? 'green' : 'red',
 			  backgroundColor: result.result === 'clean' ? 'rgba(0, 255, 0, 0.2)' : 'rgba(255, 0, 0, 0.2)',

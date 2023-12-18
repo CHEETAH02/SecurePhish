@@ -47,14 +47,13 @@ function Docs() {
       <div style={{ padding: '20px', backgroundColor: '#e6f3ff', borderRadius: '8px' }}>
         <h3>Sample Code</h3>
         <p>Here is a sample code snippet in JavaScript to get you started:</p>
-        <pre>
-          {`
-            const apiKey = 'your_generated_api_key';
-
-            // Make API requests using the apiKey
-            // Example: fetch('https://api.example.com/data', { headers: { 'Authorization': \`Bearer \${apiKey}\` } })
-          `}
-        </pre>
+        <div>
+        <p>1. Choose a SecurePhish API Endpoint URL
+          <br/>An example endpoint is Check phishing, which checks a URL if it phishing or not. The URL for this endpoint is:
+          <br/>
+          <p style={{border: '2px solid #ccc', padding: '10px', backgroundColor: '#f0f0f0', borderRadius: '5px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', wordBreak: 'break-all', color: '#333'}}>const apiUrl = https://securephish.onrender.com/v1/Predict</p>
+        </p>
+        </div>
       </div>
     </div>
   );

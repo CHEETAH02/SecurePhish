@@ -74,19 +74,19 @@ export default function AccordionComponent() {
       <h4 style={{ color: '#164863' }}>Research Papers Referred:</h4>
     </div>
     
-    <p>1. https://www.mdpi.com/2073-8994/12/10/1681<br/>2. https://cybersecurity.springeropen.com/articles/10.1186/s42400-022-00126-9<br/>3. https://www.irjet.net/archives/V8/i4/IRJET-V8I408.pdf<br/>4. https://pyimagesearch.com/2017/11/27/image-hashing-opencv-python/</p>
+    <p>1. <a href="https://www.mdpi.com/2073-8994/12/10/1681">Intelligent Visual Similarity-Based Phishing Websites Detection</a><br/>2. <a href= "https://cybersecurity.springeropen.com/articles/10.1186/s42400-022-00126-9">Phishing website prediction using base and ensemble classifier techniques with cross-validation</a><br/>3. <a href="https://www.irjet.net/archives/V8/i4/IRJET-V8I408.pdf">PHISCAN: Phishing Detector Plugin using Machine Learning</a><br/>4. <a href= "https://pyimagesearch.com/2017/11/27/image-hashing-opencv-python/">Image hashing with OpenCV and Python</a></p>
 
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <img src="/dataset.png" alt="Datasets Icon" style={{ width: '30px', marginRight: '10px' }} />
       <h4 style={{ color: '#164863' }}>Datasets used:</h4>
     </div>
-    <p>1. https://www.kaggle.com/datasets/joebeachcapital/top-10-million-websites-2023/</p>
+    <p>1. <a href="https://www.kaggle.com/datasets/joebeachcapital/top-10-million-websites-2023">Top 10 Million Websites 2023</a></p>
 
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <img src="/report.png" alt="Statistics Icon" style={{ width: '30px', marginRight: '10px' }} />
       <h4 style={{ color: '#164863' }}>Statistics and Reports used as reference:</h4>
     </div>
-    <p>1. Phishing attack statistics 2022 - CyberTalk<br/>2. https://aag-it.com/the-latest-phishing-statistics/</p>
+    <p>1. Phishing attack statistics 2022 - CyberTalk<br/>2. <a href="https://aag-it.com/the-latest-phishing-statistics/">The Latest 2023 Phishing Statistics </a></p>
 
     <br /><br />
   </div>

@@ -6,7 +6,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useLocation } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
@@ -36,6 +36,18 @@ const ContactForm = () => {
   };
 
   return (
+<div style={{ 
+  display: 'flex', 
+  maxWidth: '900px', 
+  margin: 'auto', 
+  textAlign: "left", 
+  color: "#164863", 
+  fontWeight: '30px', 
+  fontSize: '20px',
+  boxShadow: '0 0 10px rgba(0, 0, 255, 0.2)', // Adding blue shadow
+  border: '1px solid #164863', // Adding blue border
+  padding: '20px', // Adding padding for spacing
+}}>
     <div style={{ display: 'flex', maxWidth: '900px', margin: 'auto', textAlign:"left" , color:"#164863", fontWeight: '30px', fontSize: '20px',}}>
       <div style={{ flex: 1 ,marginRight:"-2vw", marginLeft:"3vw"}}>
        <br/>
@@ -78,12 +90,13 @@ const ContactForm = () => {
           </button>
         </form>
       </div>
+      </div>
       <div style={{ flex: 1 }}>
         {/* Replace the image source with your actual image */}
         <img
           src="/contact.jpg" 
           alt="Contact Us Image"
-          style={{ width: '100%', height: 'auto',marginTop:"-2vw" }}
+          style={{ width: '80%', height: '100%',marginTop:"8px", marginLeft: "60px" }}
         />
       </div>
     </div>
@@ -379,12 +392,13 @@ cursor: 'pointer',
         </p>
 		<br/>
         <div style={{ display: 'flex', marginTop: '20px' }}>
-		
+        <Link to="/features">
           <button  style={{ fontFamily: 'Calibri',
     fontSize: '18px',
     fontStyle: 'normal', width:"200px", backgroundColor:"#164863", color:"white", height:"50px"}}>
            Know More!
           </button>
+          </Link>
          
         </div>
         
@@ -399,15 +413,15 @@ cursor: 'pointer',
 <div style={{ display: 'flex', justifyContent: 'space-between', backgroundColor: "", paddingBottom: "10px" ,}}>
 
   <div style={{ borderRight: '1px solid #164863', paddingRight: '10px' }}>
-    <AnimatedCounter endValue={96} title="Percent Accuracy" />
+    <AnimatedCounter endValue={93.5} title="Percent Accuracy" />
   </div>
   <div style={{ borderRight: '1px solid #164863', paddingRight: '10px' }}>
-    <AnimatedCounter endValue={75} title="Another Metric" />
+    <AnimatedCounter endValue={0.025} title="False Positives" />
   </div>
   <div style={{ borderRight: '1px solid #164863', paddingRight: '10px' }}>
-    <AnimatedCounter endValue={85} title="Yet Another Metric" />
+    <AnimatedCounter endValue={0.0486} title="False Negatives" />
   </div>
-  <AnimatedCounter endValue={85} title="Yet Another Metric" />
+  <AnimatedCounter endValue={0.93} title="Area under ROC" />
 </div>
 
 <br/><br/>
@@ -427,13 +441,13 @@ cursor: 'pointer',
 
 <h1 style={{ alignContent: 'center', color: '#164863', }}>Our Products</h1>
       {/* Feature Cards */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px', marginLeft:"15vw", marginRight:"15vw" }}>
+      <div style={{ display: 'flex', alignContent: 'justify !important', marginTop: '20px', marginLeft:"15vw", marginRight:"15vw" }}>
         {/* Feature Card 1 */}
         <Card style={cardStyle}>
           <CardContent>
             <img src="/extensions.png" alt="SecurePhish Browser Extension" style={imageStylee} />
             <h3 style={titleStyle}>SecurePhish Browser Extension</h3>
-            <p style={contentStyle}>Lorem ipsum dolor sit amet, Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <p style={contentStyle}>Protect your online experience with the SecurePhish Chrome and Firefox Browser Extension, offering proactive phishing detection to ensure a secure and trustworthy browsing environment.
 
 </p>
             <button style={buttonStylee} onClick={() => window.location.href = '/extension-details'}>
@@ -447,7 +461,7 @@ cursor: 'pointer',
           <CardContent>
             <img src="/mail.png" alt="SecurePhish URL Scanner Email Plugin" style={imageStylee} />
             <h3 style={titleStyle}>SecurePhish URL Scanner Email Plugin</h3>
-            <p style={contentStyle}>Lorem ipsum dolor sit amet,  dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <p style={contentStyle}>Enhance your email protection with the SecurePhish URL Scanner Gmail Plugin, scanning URLs in real-time to fortify your inbox against phishing attempts and maintain a secure email environment.
 
 </p>
             <button style={buttonStylee} onClick={() => window.location.href = '/url-scanner-details'}>
@@ -461,7 +475,7 @@ cursor: 'pointer',
           <CardContent>
             <img src="/api.png" alt="SecurePhish AntiPhishing API" style={imageStylee} />
             <h3 style={titleStyle}>SecurePhish AntiPhishing API</h3>
-            <p style={contentStyle}>Lorem ipsum dolor sit amet, ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <p style={contentStyle}>Integrate the SecurePhish AntiPhishing API to bolster your applications with advanced phishing detection capabilities, ensuring robust security against malicious URLs and enhancing user safety.
 
 </p>
             <button style={buttonStylee} onClick={() => window.location.href = '/api-details'}>
