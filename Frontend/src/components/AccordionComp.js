@@ -74,19 +74,19 @@ export default function AccordionComponent() {
       <h4 style={{ color: '#164863' }}>Research Papers Referred:</h4>
     </div>
     
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>1. https://www.mdpi.com/2073-8994/12/10/1681<br/>2. https://cybersecurity.springeropen.com/articles/10.1186/s42400-022-00126-9<br/>3. https://www.irjet.net/archives/V8/i4/IRJET-V8I408.pdf<br/>4. https://pyimagesearch.com/2017/11/27/image-hashing-opencv-python/</p>
 
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <img src="/dataset.png" alt="Datasets Icon" style={{ width: '30px', marginRight: '10px' }} />
       <h4 style={{ color: '#164863' }}>Datasets used:</h4>
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>1. https://www.kaggle.com/datasets/joebeachcapital/top-10-million-websites-2023/</p>
 
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <img src="/report.png" alt="Statistics Icon" style={{ width: '30px', marginRight: '10px' }} />
       <h4 style={{ color: '#164863' }}>Statistics and Reports used as reference:</h4>
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>1. Phishing attack statistics 2022 - CyberTalk<br/>2. https://aag-it.com/the-latest-phishing-statistics/</p>
 
     <br /><br />
   </div>
