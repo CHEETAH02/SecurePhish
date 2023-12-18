@@ -329,58 +329,97 @@ cursor: 'pointer',
 
 
 const accordionData = [
-	{
-		id: 'panel1',
-		title: 'Feature 1: Prefix-Suffix Separation',
-		content: 'Phishing websites frequently employ deceptive prefixes or suffixes to imitate legitimate domains. Detecting the presence of unusual prefixes or suffixes is vital in spotting potential phishing attempts.',
-	},
-	{
-		id: 'panel2',
-		title: 'Feature 2: Subdomains',
-		content: 'To appear legitimate, phishing sites may incorporate subdomains. Analyzing the number and patterns of subdomains can provide insights into potential phishing activity.',
-	},
-	{
-		id: 'panel3',
-		title: 'Feature 3: URL Length',
-		content: 'Phishing URLs are often characterized by excessive length, including numerous random characters or subdirectories. Unusually long URLs can raise red flags as possible phishing attempts.',
-	},
-	{
-		id: 'panel4',
-		title: 'Feature 4: Domain Age',
-		content: 'Legitimate websites typically have a longer history, while phishing domains are often newly created. Examining the age of a domain is a valuable indicator for detection.',
-	},
-	{
-		id: 'panel5',
-		title: 'Feature 5: DNS Records',
-		content: "The presence or absence of DNS records can hint at a domain's legitimacy. Legitimate websites usually have DNS records, while some phishing domains might not.",
-	},
-	{
-		id: 'panel6',
-		title: 'Feature 6: Domain Registration Length',
-		content: 'Phishing domains often have short registration periods to evade long-term detection. Analyzing the registration duration of a domain can assist in identifying suspicious activity.',
-	},
-	{
-		id: 'panel7',
-		title: 'Feature 7: Statistical Analysis',
-		content: 'Incorporating statistical features, such as entropy, character frequencies, or keyword analysis, can reveal irregularities commonly associated with phishing URLs.',
-	},
-	{
-		id: 'panel8',
-		title: 'Feature 8: URL Shorteners',
-		content: 'The use of URL shorteners like TinyURL can obscure the true destination. Detecting the use of URL shorteners is a valuable feature in identifying potential phishing links.',
-	},
-	{
-		id: 'panel9',
-		title: 'Feature 9: Slash Usage',
-		content: 'Phishing URLs may contain excessive slashes or unusual path structures. Identifying irregularities in slash placement and frequency can be informative.',
-	},
-	{
-		id: 'panel10',
-		title: 'Feature 10: Dot Usage',
-		content: 'The presence of extra dots in domain names can be indicative of phishing. For instance, comparing "legit.com" to "l.egit.com" can reveal potential threats.',
-	},
+  {
+    id: 'dns',
+    title: 'DNS Records',
+    content: "The presence or absence of DNS records can hint at a domain's legitimacy. Legitimate websites usually have DNS records, while some phishing domains might not.",
+  },
+  {
+    id: 'age_of_domain',
+    title: 'Domain Age',
+    content: 'Legitimate websites typically have a longer history, while phishing domains are often newly created. Examining the age of a domain is a valuable indicator for detection.',
+  },
+  {
+    id: 'ssl',
+    title: 'SSL/TLS',
+    content: 'The presence of SSL/TLS encryption can indicate a secure connection. Legitimate websites often use SSL/TLS to protect user data.',
+  },
+  {
+    id: 'curr_age',
+    title: 'Current Age of Domain',
+    content: 'Analyzing the current age of a domain can provide insights into its legitimacy. Phishing domains may have short lifespans.',
+  },
+  {
+    id: 'check_link',
+    title: 'Check Link',
+    content: 'Checking the validity of a link is crucial for identifying phishing attempts. Legitimate links should lead to the expected destination.',
+  },
+  {
+    id: 'nsport',
+    title: 'Non-Standard Port',
+    content: 'The use of non-standard ports in a URL may indicate suspicious activity. Legitimate websites typically use standard ports for communication.',
+  },
+  {
+    id: 'longurl',
+    title: 'Long URL',
+    content: 'Phishing URLs are often characterized by excessive length, including numerous random characters or subdirectories. Unusually long URLs can raise red flags as possible phishing attempts.',
+  },
+  {
+    id: 'shortUrl',
+    title: 'Shortened URL',
+    content: 'The use of URL shorteners like TinyURL can obscure the true destination. Detecting the use of URL shorteners is a valuable feature in identifying potential phishing links.',
+  },
+  {
+    id: 'symbol',
+    title: 'Symbol Usage',
+    content: 'The presence of unusual symbols in a URL may indicate an attempt to deceive. Legitimate URLs typically avoid excessive or unusual symbol usage.',
+  },
+  {
+    id: 'redirecting',
+    title: 'URL Redirection',
+    content: 'Phishing sites may use URL redirection to disguise the true destination. Detecting URL redirection is important for identifying potential threats.',
+  },
+  {
+    id: 'prefixSuffix',
+    title: 'Prefix-Suffix Separation',
+    content: 'Phishing websites frequently employ deceptive prefixes or suffixes to imitate legitimate domains. Detecting the presence of unusual prefixes or suffixes is vital in spotting potential phishing attempts.',
+  },
+  {
+    id: 'NonStdPort',
+    title: 'Non-Standard Port Usage',
+    content: 'The use of non-standard ports in a URL may indicate suspicious activity. Legitimate websites typically use standard ports for communication.',
+  },
+  {
+    id: 'SubDomains',
+    title: 'Subdomains',
+    content: 'To appear legitimate, phishing sites may incorporate subdomains. Analyzing the number and patterns of subdomains can provide insights into potential phishing activity.',
+  },
+  {
+    id: 'Hppts',
+    title: 'HTTPS Usage',
+    content: 'The use of HTTPS in a URL indicates a secure connection. Legitimate websites often use HTTPS to encrypt data during transmission.',
+  },
+  {
+    id: 'ip',
+    title: 'IP Address',
+    content: 'Including an IP address in a URL may be a sign of phishing. Legitimate URLs typically use domain names rather than direct IP addresses.',
+  },
+  {
+    id: 'abnormal',
+    title: 'Abnormal URL Patterns',
+    content: 'Analyzing abnormal URL patterns, such as the presence of random characters or unusual structures, can help identify potential phishing attempts.',
+  },
+  {
+    id: 'msdomains',
+    title: 'Misspelled Domains',
+    content: 'Misspelled domains are a common technique used in phishing. Detecting misspelled domains is crucial for identifying potential threats.',
+  },
+  {
+    id: 'swords',
+    title: 'Suspicious Words',
+    content: 'The presence of suspicious words in a URL can indicate potential phishing. Analyzing the words used in a domain name is crucial for detection.',
+  },
 ];
-
 function About() {
 	
   return (
